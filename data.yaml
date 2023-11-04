@@ -1,0 +1,13 @@
+train: data/train/images
+val: data/valid/images
+test: data/test/images
+
+nc: 11
+names: ['0', 'Dogs', 'Fruitfly', 'Human Body', 'Lizards', 'Squirrel', 'aphid', 'fly', 'kid', 'person', 'rat']
+
+roboflow:
+  workspace: texas-am-at-college-station
+  project: smart-pest-repeller-detection
+  version: 14
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/texas-am-at-college-station/smart-pest-repeller-detection/dataset/14
