@@ -115,7 +115,7 @@ if __name__ == "__main__":
             
         pred_json = os.path.join(out_path,
                     "{}_predictions.json".format(os.path.basename(args.model)))
-        
+
         with open(pred_json, 'w') as f:
             json.dump(predictions, f,indent=1)
         
