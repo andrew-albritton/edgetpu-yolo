@@ -263,8 +263,8 @@ class EdgeTPUModel:
             if save_txt:
                 output_txt = base+".txt"
                 with open(output_txt, 'w') as f:
-                   f.write(output)
-                   print(output)
+                   f.write(json.dumps(output))
+                   print(json.dumps(output))
             if save_img:
               cv2.imwrite(output_path, output_image)
             
