@@ -2,7 +2,7 @@ import time
 import os
 import sys
 import logging
-
+import csv
 import yaml
 import numpy as np
 import pycoral.utils.edgetpu as etpu
@@ -261,10 +261,13 @@ class EdgeTPUModel:
                     output[base]['cls_name'] = self.names[c]
                     
             if save_txt:
-                output_txt = base+".txt"
-                with open(output_txt, 'w') as f:
-                   f.write(json.dumps(output))
-                   print(json.dumps(output))
+                csv_path = 'detections.csv'
+                data = {'Prediction': output[base]['cls_name'], 'Confidence': output[base]['conf']}
+                with open(csv_path, mode='a', newline='') as f:
+                    writer = csv.DictWriter(f, fieldnames=data.keys())
+                    if not csv_path.is_file():
+                        writer.writeheader()
+                    writer.writerow(data)
             if save_img:
               cv2.imwrite(output_path, output_image)
             
