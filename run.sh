@@ -1,0 +1,1 @@
+python3 detect.py -m best-int8_edgetpu.tflite --names data.yaml --image processed_images/featured-image-drain-fly.webp
