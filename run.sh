@@ -1,1 +1,1 @@
-python3 detect.py -m best-int8_edgetpu.tflite --names data.yaml --stream 1 --device 1
+python3 detect.py -m best-int8_edgetpu.tflite --names data.yaml --stream --device 1
