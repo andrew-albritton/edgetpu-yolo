@@ -59,7 +59,7 @@ try:
 
             if state:
                 print("Motion Detected! Running Classification...")
-                os.system("python3 detect.py -m best-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.5 --steam --device 1")
+                os.system("python3 detect.py -m best-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.5 --stream --device 1")
                 time.sleep(3.0)
     
                 #grabbing data from csv
