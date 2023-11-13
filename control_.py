@@ -1,4 +1,4 @@
-#%%
+
 import os
 import pandas as pd
 import time
@@ -47,7 +47,9 @@ def get_file_names(folder_path):
 '''
 insert code here to use above functions for image processing
 '''
-
+# cleearing csv before running
+f = open("detections.csv", "w+")
+f.close()
 # GPIO pin initialization
 motionsensor = GPIO("/dev/gpiochip4", 13, "in")  # pin 36
 
