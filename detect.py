@@ -127,11 +127,11 @@ if __name__ == "__main__":
         logger.info("Opening stream on device: {}".format(args.device))
         
         cam = cv2.VideoCapture(args.device)
-        
-        while True:
+        photos = 0
+        while photos < 51:
           try:
             res, image = cam.read()
-            
+            photos = photos + 1
             if res is False:
                 logger.error("Empty image received")
                 break
