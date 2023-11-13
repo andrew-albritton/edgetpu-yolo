@@ -67,8 +67,8 @@ try:
                 #grabbing data from csv
                 dataframe = pd.read_csv("detections.csv", header=None)   
                 length = dataframe.shape[0]
-                found_labels = dataframe.loc[0:length, [1]]
-                found_probs = dataframe.iloc[0:length, [2]]
+                found_labels = dataframe.loc[0:length, 0]
+                found_probs = dataframe.iloc[0:length, 1]
                 found_probs = found_probs.to_numpy()
                 flycount = 0.
                 flyprob = 0.
@@ -84,10 +84,10 @@ try:
                 lizardscore = 0.
                 #counts of each category requireing frequency emission
                 #possible labels - names: ['0', 'Dogs', 'Fruitfly', 'Human Body', 'Lizards', 'Squirrel', 'aphid', 'fly', 'kid', 'person', 'rat']
-    
+                
                 for i in range(0, len(found_labels) - 1):
                     condition = found_labels.iloc[i]
-                    condition = str(condition.iloc[0])
+                    condition = str(condition)
                     if (condition == 'Fruitfly' or condition == 'fly' or condition == 'aphid'):
                         flycount += 1
                         flyprob += found_probs[i]
@@ -102,7 +102,7 @@ try:
                         rodentcount += 1
                         rodentprob += found_probs[i]    
                         foundrat = True    
-    
+                
                 #averaging scores
                 if (foundrat == True):
                     ratscore = rodentprob / rodentcount
@@ -110,16 +110,17 @@ try:
                     flyscore = flyprob / flycount
                 if (foundliz == True):
                     lizardscore = lizardprob / lizardcount
-    
+                
                 scorelist = {'rat':ratscore, 'lizard':lizardscore, 'fly':flyscore}
-    
+                
                 descision = max(scorelist, key=scorelist.get)
-    
+                
                 print("rat averaged    prob: ", ratscore,'\n')
                 print("lizard averaged prob: ", lizardscore, '\n')
                 print("fly averaged    prob: ", flyscore, '\n')
                 print("Transmit Frequency: "+descision)
                 
+                                
                 f = open("detections.csv", "w+") #clearing saved data on detections.csv
                 f.close()
             time.sleep(1)
