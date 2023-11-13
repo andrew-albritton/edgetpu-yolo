@@ -48,7 +48,7 @@ def get_file_names(folder_path):
 insert code here to use above functions for image processing
 '''
 while 1 == 1:
-    motionsensor = GPIO("sys/class/gpio/gpio141", 13, "in") # pin 36
+    motionsensor = GPIO("/dev/gpiochip4", 13, "in") # pin 36
     state =  motionsensor.read()
     print("waiting for motion")
     try:
