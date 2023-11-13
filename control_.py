@@ -47,76 +47,83 @@ def get_file_names(folder_path):
 '''
 insert code here to use above functions for image processing
 '''
-while 1 == 1:
-    motionsensor = GPIO("/dev/gpiochip4", 13, "in") # pin 36
-    state =  motionsensor.read()
-    print("waiting for motion")
-    try:
-        if state == True:
-            print("Motion Detected! Running Classification...")
-            
-            os.system("python3 detect.py -m best-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.5 --steam --device 1")
-            time.sleep(3.0)
 
-            #grabbing data from csv
-            dataframe = pd.read_csv("detections.csv", header=None)   
-            length = dataframe.shape[0]
-            found_labels = dataframe.loc[0:length, [1]]
-            found_probs = dataframe.iloc[0:length, [2]]
-            found_probs = found_probs.to_numpy()
-            flycount = 0.
-            flyprob = 0.
-            lizardcount = 0.
-            lizardprob = 0.
-            rodentcount = 0.
-            rodentprob = 0.
-            foundfly = False
-            foundliz = False
-            foundrat = False
-            ratscore = 0.
-            flyscore = 0.
-            lizardscore = 0.
-            #counts of each category requireing frequency emission
-            #possible labels - names: ['0', 'Dogs', 'Fruitfly', 'Human Body', 'Lizards', 'Squirrel', 'aphid', 'fly', 'kid', 'person', 'rat']
+# GPIO pin initialization
+motionsensor = GPIO("/dev/gpiochip4", 13, "in")  # pin 36
 
-            for i in range(0, len(found_labels) - 1):
-                condition = found_labels.iloc[i]
-                condition = str(condition.iloc[0])
-                if (condition == 'Fruitfly' or condition == 'fly' or condition == 'aphid'):
-                    flycount += 1
-                    flyprob += found_probs[i]
-                    foundfly = True
-                    
-                elif (condition == ('Lizards' or '0')):
-                    lizardcount += 1
-                    lizardprob += found_probs[i]
-                    foundliz = True
-                
-                elif (condition == ('Squirrel' or 'rat')):
-                    rodentcount += 1
-                    rodentprob += found_probs[i]    
-                    foundrat = True    
+try:
+    while True:
+        try:
+            state = motionsensor.read()
+            print("waiting for motion")
 
-            #averaging scores
-            if (foundrat == True):
-                ratscore = rodentprob / rodentcount
-            if (foundfly == True):
-                flyscore = flyprob / flycount
-            if (foundliz == True):
-                lizardscore = lizardprob / lizardcount
-
-            scorelist = {'rat':ratscore, 'lizard':lizardscore, 'fly':flyscore}
-
-            descision = max(scorelist, key=scorelist.get)
-
-            print("rat averaged    prob: ", ratscore,'\n')
-            print("lizard averaged prob: ", lizardscore, '\n')
-            print("fly averaged    prob: ", flyscore, '\n')
-            print("Transmit Frequency: "+descision)
-            
-            f = open("detections.csv", "w+") #clearing saved data on detections.csv
-            f.close()
-    except:
-        break
+            if state:
+                print("Motion Detected! Running Classification...")
+                os.system("python3 detect.py -m best-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.5 --steam --device 1")
+                time.sleep(3.0)
     
-# %%
+                #grabbing data from csv
+                dataframe = pd.read_csv("detections.csv", header=None)   
+                length = dataframe.shape[0]
+                found_labels = dataframe.loc[0:length, [1]]
+                found_probs = dataframe.iloc[0:length, [2]]
+                found_probs = found_probs.to_numpy()
+                flycount = 0.
+                flyprob = 0.
+                lizardcount = 0.
+                lizardprob = 0.
+                rodentcount = 0.
+                rodentprob = 0.
+                foundfly = False
+                foundliz = False
+                foundrat = False
+                ratscore = 0.
+                flyscore = 0.
+                lizardscore = 0.
+                #counts of each category requireing frequency emission
+                #possible labels - names: ['0', 'Dogs', 'Fruitfly', 'Human Body', 'Lizards', 'Squirrel', 'aphid', 'fly', 'kid', 'person', 'rat']
+    
+                for i in range(0, len(found_labels) - 1):
+                    condition = found_labels.iloc[i]
+                    condition = str(condition.iloc[0])
+                    if (condition == 'Fruitfly' or condition == 'fly' or condition == 'aphid'):
+                        flycount += 1
+                        flyprob += found_probs[i]
+                        foundfly = True
+                        
+                    elif (condition == ('Lizards' or '0')):
+                        lizardcount += 1
+                        lizardprob += found_probs[i]
+                        foundliz = True
+                    
+                    elif (condition == ('Squirrel' or 'rat')):
+                        rodentcount += 1
+                        rodentprob += found_probs[i]    
+                        foundrat = True    
+    
+                #averaging scores
+                if (foundrat == True):
+                    ratscore = rodentprob / rodentcount
+                if (foundfly == True):
+                    flyscore = flyprob / flycount
+                if (foundliz == True):
+                    lizardscore = lizardprob / lizardcount
+    
+                scorelist = {'rat':ratscore, 'lizard':lizardscore, 'fly':flyscore}
+    
+                descision = max(scorelist, key=scorelist.get)
+    
+                print("rat averaged    prob: ", ratscore,'\n')
+                print("lizard averaged prob: ", lizardscore, '\n')
+                print("fly averaged    prob: ", flyscore, '\n')
+                print("Transmit Frequency: "+descision)
+                
+                f = open("detections.csv", "w+") #clearing saved data on detections.csv
+                f.close()
+            time.sleep(1)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+        
+except KeyboardInterrupt:
+    # Close GPIO when the program is interrupted
+    motionsensor.close()
