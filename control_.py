@@ -124,7 +124,7 @@ try:
                 f = open("detections.csv", "w+") #clearing saved data on detections.csv
                 f.close()
                 
-            time.sleep(30)
+            time.sleep(10)
         except Exception as e:
             print(f"An error occurred: {e}")
         
