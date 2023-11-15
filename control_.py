@@ -86,20 +86,20 @@ try:
                 for i in range(0, len(found_labels) - 1):
                     condition = found_labels.iloc[i]
                     condition = str(condition)
-                    if (condition == 'Fruitfly' or condition == 'fly' or condition == 'aphid'):
+                    if condition in ['Fruitfly', 'fly', 'aphid']:
                         flycount += 1
                         flyprob += found_probs[i]
                         foundfly = True
-                        
-                    elif (condition == ('Lizards' or '0')):
+                                        
+                    elif condition in ['Lizards', '0']:
                         lizardcount += 1
                         lizardprob += found_probs[i]
                         foundliz = True
-                    
-                    elif (condition == ('Squirrel' or 'rat')):
+                                    
+                    elif condition in ['Squirrel', 'rat']:
                         rodentcount += 1
                         rodentprob += found_probs[i]    
-                        foundrat = True    
+                        foundrat = True 
                 
                 #averaging scores
                 if (foundrat == True):
