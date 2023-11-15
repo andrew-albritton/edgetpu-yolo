@@ -61,7 +61,7 @@ try:
 
             if state:
                 print("Motion Detected! Running Classification...")
-                os.system("python3 detect.py -m best-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.5 --stream --device 1")
+                os.system("python3 detect.py -m final_weights-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.5 --stream --device 1")
                 time.sleep(3.0)
     
                 #grabbing data from csv
@@ -123,7 +123,8 @@ try:
                                 
                 f = open("detections.csv", "w+") #clearing saved data on detections.csv
                 f.close()
-            time.sleep(1)
+                
+            time.sleep(30)
         except Exception as e:
             print(f"An error occurred: {e}")
         
