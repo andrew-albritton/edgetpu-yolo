@@ -59,7 +59,7 @@ try:
 
             if state:
                 print("Motion Detected! Running Classification...")
-                os.system("python3 detect.py -m final_weights-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.5 --stream --device 1")
+                os.system("python3 detect.py -m final_weights-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.3 --stream --device 1")
                 time.sleep(3.0)
     
                 #grabbing data from csv
@@ -112,14 +112,14 @@ try:
                 scorelist = {'rat':ratscore, 'lizard':lizardscore, 'fly':flyscore}
                 
                 descision = max(scorelist, key=scorelist.get)
-                if (scorelist != 0): 
+                if (foundrat == False and foundfly == False and foundliz == False): 
+                     print("no object detected, checking for motion...")
+                else:
                     print("rat averaged    prob: ", ratscore,'\n')
                     print("lizard averaged prob: ", lizardscore, '\n')
                     print("fly averaged    prob: ", flyscore, '\n')
                     print("Transmit Frequency: "+descision)
                     time.sleep(30)
-                else:
-                    print("no object detected, checking for motion...")
                     
             time.sleep(1)
         except Exception as e:
