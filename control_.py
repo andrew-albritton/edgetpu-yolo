@@ -121,8 +121,8 @@ try:
                 print("Transmit Frequency: "+descision)
                 
                                 
-                f = open("detections.csv", "w+") #clearing saved data on detections.csv
-                f.close()
+            f = open("detections.csv", "w+") #clearing saved data on detections.csv
+            f.close()
                 
             time.sleep(10)
         except Exception as e:
