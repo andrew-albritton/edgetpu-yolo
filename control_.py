@@ -112,17 +112,16 @@ try:
                 scorelist = {'rat':ratscore, 'lizard':lizardscore, 'fly':flyscore}
                 
                 descision = max(scorelist, key=scorelist.get)
-                
-                print("rat averaged    prob: ", ratscore,'\n')
-                print("lizard averaged prob: ", lizardscore, '\n')
-                print("fly averaged    prob: ", flyscore, '\n')
-                print("Transmit Frequency: "+descision)
-                
-                                
-            f = open("detections.csv", "w+") #clearing saved data on detections.csv
-            f.close()
-                
-            time.sleep(10)
+                if (scorelist != 0): 
+                    print("rat averaged    prob: ", ratscore,'\n')
+                    print("lizard averaged prob: ", lizardscore, '\n')
+                    print("fly averaged    prob: ", flyscore, '\n')
+                    print("Transmit Frequency: "+descision)
+                    time.sleep(30)
+                else:
+                    print("no object detected, checking for motion...")
+                    
+            time.sleep(1)
         except Exception as e:
             print(f"An error occurred: {e}")
         
