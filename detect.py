@@ -138,8 +138,8 @@ if __name__ == "__main__":
             else:
                 full_image, net_image, pad = get_image_tensor(image, input_size[0])
                 pred = model.forward(net_image)
-                
-                model.process_predictions(pred[0], full_image, pad)
+                imagepath = "out_images_/"+photos+".jpg"
+                model.process_predictions(pred[0], full_image, pad, output_path=imagepath)
                 
                 tinference, tnms = model.get_last_inference_time()
                 logger.info("Frame done in {}".format(tinference+tnms))
