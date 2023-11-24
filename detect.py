@@ -6,7 +6,8 @@ import time
 from pathlib import Path
 import glob
 import json
-
+import moviepy.video.io.ImageSequenceClip #still need to download on coral board <<<<<<
+from PIL import Image, ImageFile
 import numpy as np
 from tqdm import tqdm
 import cv2
@@ -140,12 +141,20 @@ if __name__ == "__main__":
                 pred = model.forward(net_image)
                 imagepath = "out_images_/"+photos+".jpg"
                 model.process_predictions(pred[0], full_image, pad, output_path=imagepath)
-                
+                ImageFile.LOAD_TRUNCATED_IMAGES = True
+                image_files = []
+                image_files.append(imagepath) 
                 tinference, tnms = model.get_last_inference_time()
                 logger.info("Frame done in {}".format(tinference+tnms))
+             
           except KeyboardInterrupt:
             break
-          
+                    
+        
+        fps = 30
+        
+        clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip(image_files, fps=fps)
+        clip.write_videofile('my_new_video.mp4')
         cam.release()
             
         
