@@ -50,7 +50,7 @@ insert code here to use above functions for image processing
 
 # GPIO pin initialization
 motionsensor = GPIO("/dev/gpiochip4", 13, "in")  # pin 36
-
+counter = 0
 try:
     while True:
         try:
@@ -61,8 +61,10 @@ try:
                 print("Motion Detected! Running Classification...")
                 os.system("python3 detect.py -m final_weights-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.3 --stream --device 1")
                 time.sleep(3.0)
-    
+                videofilename = counter+".mp4"
                 #grabbing data from csv
+                os.rename('my_new_video.mp4', videofilename)
+                counter = counter + 1
                 dataframe = pd.read_csv("detections.csv", header=None)   
                 length = dataframe.shape[0]
                 found_labels = dataframe.loc[0:length, 0]
