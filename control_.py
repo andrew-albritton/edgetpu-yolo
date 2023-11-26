@@ -113,7 +113,7 @@ try:
                     lizardscore = lizardprob / lizardcount
                 
                 scorelist = {'rat':ratscore, 'lizard':lizardscore, 'fly':flyscore}
-                
+                tot_count = max(flycount, lizardcount, rodentcount)
                 descision = max(scorelist, key=scorelist.get)
                 if (foundrat == False and foundfly == False and foundliz == False): 
                      print("no object detected, checking for motion...")
@@ -121,7 +121,7 @@ try:
                     print("rat averaged    prob: ", ratscore,'\n')
                     print("lizard averaged prob: ", lizardscore, '\n')
                     print("fly averaged    prob: ", flyscore, '\n')
-                    print("Transmit Frequency: "+descision)
+                    print("Transmit Frequency: "+tot_count)
                     f = open("detections.csv", "w+")
                     f.close()
                     time.sleep(30)
