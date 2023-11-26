@@ -139,7 +139,8 @@ if __name__ == "__main__":
             else:
                 full_image, net_image, pad = get_image_tensor(image, input_size[0])
                 pred = model.forward(net_image)
-                imagepath = photos+".jpg"
+                photo_name = str(photos)
+                imagepath = photo_name+".jpg"
                 model.process_predictions(pred[0], full_image, pad, output_path=imagepath)
                 ImageFile.LOAD_TRUNCATED_IMAGES = True
                 image_files = []
