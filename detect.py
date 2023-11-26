@@ -160,7 +160,7 @@ if __name__ == "__main__":
           filename = f"{i}.jpg"
     
           # Check if the file exists in the directory
-          if os.path.isfile(os.path.join(directory, filename)):
+          if os.path.isfile(os.path.join("out_images_", filename)):
             # If the file exists, append the filename to the array
             image_files.append(filename)
         clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip(image_files, fps=fps)
