@@ -12,6 +12,7 @@ import numpy as np
 from tqdm import tqdm
 import cv2
 import yaml
+import shutil
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -152,24 +153,19 @@ if __name__ == "__main__":
                     
         
         fps = 5
-        '''
-        image_files = []
-
-        # Iterate over the range of image numbers (0 to 51)
-        for i in range(0,52):
-         # Construct the filename
-          filename = f"{i}.jpg"
-    
-          # Check if the file exists in the directory
-          if os.path.isfile(os.path.join("out_images_", filename)):
-            # If the file exists, append the filename to the array
-            image_files.append(filename)
-        '''
+        
         clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip("out_images_/", fps=fps)
         clip.write_videofile('my_new_video.mp4')
-        files = glob.glob('out_images/.*')
-        for f in files:
-          os.remove(f)
+        folder = 'out_images_/'
+        for filename in os.listdir(folder):
+          file_path = os.path.join(folder, filename)
+          try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+              os.unlink(file_path)
+            elif os.path.isdir(file_path):
+              shutil.rmtree(file_path)
+          except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
         cam.release()
             
         
