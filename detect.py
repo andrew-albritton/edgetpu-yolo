@@ -152,7 +152,7 @@ if __name__ == "__main__":
                     
         
         fps = 30
-     '''
+        '''
         image_files = []
 
         # Iterate over the range of image numbers (0 to 51)
@@ -164,7 +164,7 @@ if __name__ == "__main__":
           if os.path.isfile(os.path.join("out_images_", filename)):
             # If the file exists, append the filename to the array
             image_files.append(filename)
-            '''
+        '''
         clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip("out_images_/", fps=fps)
         clip.write_videofile('my_new_video.mp4')
         files = glob.glob('out_images/')
