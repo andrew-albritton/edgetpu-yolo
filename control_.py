@@ -61,7 +61,8 @@ try:
                 print("Motion Detected! Running Classification...")
                 os.system("python3 detect.py -m final_weights-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.3 --stream --device 1")
                 time.sleep(3.0)
-                videofilename = counter+".mp4"
+                vidname = str(counter)
+                videofilename = vidname+".mp4"
                 #grabbing data from csv
                 os.rename('my_new_video.mp4', videofilename)
                 counter = counter + 1
