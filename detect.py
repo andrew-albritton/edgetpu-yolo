@@ -167,7 +167,7 @@ if __name__ == "__main__":
         '''
         clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip("out_images_/", fps=fps)
         clip.write_videofile('my_new_video.mp4')
-        files = glob.glob('out_images/')
+        files = glob.glob('out_images/.*')
         for f in files:
           os.remove(f)
         cam.release()
