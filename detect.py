@@ -151,7 +151,7 @@ if __name__ == "__main__":
             break
                     
         
-        fps = 30
+        fps = 5
         '''
         image_files = []
 
