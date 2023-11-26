@@ -153,7 +153,7 @@ if __name__ == "__main__":
                     
         
         fps = 5
-        if os.stat("out_images_").st_size > 0:
+        if os.listdir("out_images_"):
           clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip("out_images_/", fps=fps)
           clip.write_videofile('my_new_video.mp4')
           folder = 'out_images_/'
