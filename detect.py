@@ -140,11 +140,10 @@ if __name__ == "__main__":
                 full_image, net_image, pad = get_image_tensor(image, input_size[0])
                 pred = model.forward(net_image)
                 photo_name = str(photos)
-                imagepath = photo_name+".jpg"
+                imagepath = "out_images_/"+photo_name+".jpg"
                 model.process_predictions(pred[0], full_image, pad, output_path=imagepath)
                 ImageFile.LOAD_TRUNCATED_IMAGES = True
-                image_files = []
-                image_files.append(imagepath) 
+          
                 tinference, tnms = model.get_last_inference_time()
                 logger.info("Frame done in {}".format(tinference+tnms))
              
@@ -154,8 +153,8 @@ if __name__ == "__main__":
         
         fps = 30
         
-        clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip(image_files, fps=fps)
-        clip.write_videofile('my_new_video.mp4')
+        #clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip(image_files, fps=fps)
+        #clip.write_videofile('my_new_video.mp4')
         cam.release()
             
         
