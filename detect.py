@@ -163,7 +163,7 @@ if __name__ == "__main__":
           if os.path.isfile(os.path.join("out_images_", filename)):
             # If the file exists, append the filename to the array
             image_files.append(filename)
-        clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip(image_files, fps=fps)
+        clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip("out_images_/"+image_files, fps=fps)
         clip.write_videofile('my_new_video.mp4')
         files = glob.glob('out_images/')
         for f in files:
