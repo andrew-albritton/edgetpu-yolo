@@ -113,7 +113,8 @@ try:
                     lizardscore = lizardprob / lizardcount
                 
                 scorelist = {'rat':ratscore, 'lizard':lizardscore, 'fly':flyscore}
-                tot_count = max(flycount, lizardcount, rodentcount)
+                countlist = {'rat':rodentcount, 'lizard':lizardcount, 'fly':flycount}
+                tot_count = max(countlist, key=countlist.get)
                 descision = max(scorelist, key=scorelist.get)
                 if (foundrat == False and foundfly == False and foundliz == False): 
                      print("no object detected, checking for motion...")
