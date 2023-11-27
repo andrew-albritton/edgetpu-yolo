@@ -7,9 +7,10 @@ try:
         try:
             i2c = I2C("/dev/i2c-1")
             data = [0x00]
-            msg = I2C.Message(data, read=True)
+            msgs = [I2C.Message([0x01, 0x00]), I2C.Message([0x00], read=True)]
 
-            print(data)
+            print("0x100: 0x{:02x}".format(msgs[1].data[0]))
+
             
         except Exception as e:
             print(f"An error occurered: {e}")
