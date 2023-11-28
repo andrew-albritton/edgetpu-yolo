@@ -6,10 +6,10 @@ try:
     while True:
         try:
             i2c = I2C("/dev/i2c-1")
-            data = [0x00]
-            msgs = [I2C.Message([0x01, 0x00]), I2C.Message([0x00], read=True)]
+            data = [0,0]
+            msgs = I2C.Message(data, read=True)
 
-            print("0x100: 0x{:02x}".format(msgs[1].data[0]))
+            print(hex(msgs))
 
             
         except Exception as e:
