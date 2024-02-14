@@ -129,7 +129,11 @@ try:
                     print("Transmit Frequency: "+tot_count)
                     f = open("detections.csv", "w+")
                     f.close()
-                    time.sleep(30)
+                    
+                    for i in range(30):
+                        time.sleep(1)
+                        if turn_off:
+                         os.system("sudo shutdown now") #turns system off when switch is turned
                     
             time.sleep(1)
         except Exception as e:
