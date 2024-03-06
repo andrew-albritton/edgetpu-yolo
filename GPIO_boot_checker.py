@@ -1,6 +1,7 @@
 from periphery import GPIO
 import time
 
+time.sleep(5)
 test_pin = GPIO("dev/gpiochip4", 13, "out")
 
 while(i < 10):
