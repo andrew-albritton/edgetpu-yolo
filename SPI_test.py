@@ -1,6 +1,6 @@
 from periphery import SPI
 
-spi1_0 = SPI("/dev/spidev0", 0, 125000000,'lsb',40)
+spi1_0 = SPI("/dev/spidev0.0", 0, 125000000,'lsb',40)
 
 data = '{0:040b}'.format(40000)
 
