@@ -12,4 +12,4 @@ datain = spi1_0.transfer(data_out)
 print(data_out)
 print(datain)
 
-spi.close()
+spi1_0.close()
