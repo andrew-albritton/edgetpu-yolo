@@ -3,7 +3,7 @@ import time
 
 time.sleep(5)
 test_pin = GPIO("/dev/gpiochip4", 13, "out")
-
+i = 0
 while(i < 10):
   try:
     test_pin.write(True)
