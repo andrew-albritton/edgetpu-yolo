@@ -1,1 +1,1 @@
-python3 control_.py
+python3 GPIO_boot_checker.py
