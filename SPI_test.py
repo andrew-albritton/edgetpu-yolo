@@ -1,5 +1,5 @@
 from periphery import SPI
-
+frequency = 40000
 freq = frequency * 4294967295 / 125000000
   
 
