@@ -38,7 +38,7 @@ def sendFrequency(frequency):     		# Function to send frequency (assumes 125MHz
 
 
 
-frequency = [40000, 50000, 70000, 200000, 400000]               		# choose frequency and
+frequency = [4000, 5000, 7000, 20000, 40000]               		# choose frequency and
 for i in range(0, len(frequency)):
   pulseHigh(RESET)                  		# start-up sequence...
   pulseHigh(W_CLK)
