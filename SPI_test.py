@@ -1,4 +1,5 @@
 from periphery import GPIO
+import time
 
 W_CLK = GPIO("/dev/gpiochip4",10,"out")         #pin 18
 FQ_UD = GPIO("/dev/gpiochip4",12,"out")         #pin 22
@@ -38,5 +39,7 @@ pulseHigh(RESET)                  		# start-up sequence...
 pulseHigh(W_CLK)
 pulseHigh(FQ_UD)
 
-frequency = 490000               		# choose frequency and
-sendFrequency(frequency)          		# start the oscillator
+frequency = [40000, 50000, 70000, 200000, 400000]               		# choose frequency and
+for i in range(0, frequency.size() - 1):
+  sendFrequency(frequency[i])          		# start the oscillator
+  time.sleep(5)
