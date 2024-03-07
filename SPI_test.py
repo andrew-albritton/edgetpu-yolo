@@ -28,7 +28,6 @@ def sendFrequency(frequency):     		# Function to send frequency (assumes 125MHz
   freq = '{0:032b}'.format(freq)
   print(freq)
   for b in range (0,4):
-    print(freq & 0xFF)
     tfr_byte(freq & 0xFF)
     freq=freq>>8
     tfr_byte(0x00)
