@@ -38,5 +38,5 @@ pulseHigh(RESET)                  		# start-up sequence...
 pulseHigh(W_CLK)
 pulseHigh(FQ_UD)
 
-frequency = 470000               		# choose frequency and
+frequency = 475000               		# choose frequency and
 sendFrequency(frequency)          		# start the oscillator
