@@ -1,7 +1,7 @@
 from periphery import SPI
 frequency = 40000
 freq = frequency * 4294967295 / 125000000
-int_32(freq) 
+int(freq) 
 
 spi1_0 = SPI("/dev/spidev0.0", 0, 125000000)
 
