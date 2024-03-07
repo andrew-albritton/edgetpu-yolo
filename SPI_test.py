@@ -1,7 +1,4 @@
 from periphery import GPIO
-# setup GPIO options...
-GPIO.setmode(GPIO.BOARD)
-GPIO.setwarnings(False)
 
 W_CLK = GPIO("/dev/gpiochip4",10,"out")         #pin 18
 FQ_UD = GPIO("/dev/gpiochip4",12,"out")         #pin 22
