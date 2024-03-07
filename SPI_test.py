@@ -1,19 +1,41 @@
-from periphery import SPI
-frequency = 40000
-freq = frequency * 4294967295 / 125000000
-freq = int(freq) 
+from periphery import GPIO
+# setup GPIO options...
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
 
-spi1_0 = SPI("/dev/spidev0.0", 0, 125000000)
+W_CLK = GPIO("/dev/gpiochip4",10,"out")         #pin 18
+FQ_UD = GPIO("/dev/gpiochip4",12,"out")         #pin 22
+DATA = GPIO("/dev/gpiochip0", 7, "out")         #pin 29
+RESET = GPIO("/dev/gpiochip0", 8, "out")        #pin 31
 
-data = '{0:040b}'.format(freq)
+def pulseHigh(pin):               		# Function to send a pulse
+	pin.write(True)
+  pin.write(True)
+  pin.write(True)
+  pin.write(False)# do it a few times to increase pulse width# (easier than writing a delay loop!)   	# end of the pulse
+	return
 
-data_out = [int(x) for x in str(data)]
-data_out.reverse()
-try:
-  while(True):
-    try:
-      datain = spi1_0.transfer(data_out)
-    except Exception as e:
-      print(f"An error occurred: {e}")
-except KeyboardInterrupt:
-  spi1_0.close()
+def tfr_byte(data):               		# Function to send a byte by serial "bit-banging"
+	for i in range (0,8):
+		DATA.write(data & 0x01)	# Mask out LSB and put on GPIO pin "DATA"
+		pulseHigh(W_CLK)              	# pulse the clock line
+		data=data>>1                  	# Rotate right to get next bit
+	return
+
+def sendFrequency(frequency):     		# Function to send frequency (assumes 125MHz xtal)
+	freq=long(frequency*4294967296/125000000)
+	for b in range (0,4):
+		tfr_byte(freq & 0xFF)
+		freq=freq>>8
+	tfr_byte(0x00)
+	pulseHigh(FQ_UD)
+	return
+
+
+
+pulseHigh(RESET)                  		# start-up sequence...
+pulseHigh(W_CLK)
+pulseHigh(FQ_UD)
+
+frequency = 40000               		# choose frequency and
+sendFrequency(frequency)          		# start the oscillator
