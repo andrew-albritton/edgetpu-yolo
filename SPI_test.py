@@ -17,7 +17,7 @@ def tfr_byte(data):               		# Function to send a byte by serial "bit-ban
     if((data & 0x01) == 0x01):	# Mask out LSB and put on GPIO pin "DATA"
       DATA.write(True)
     else:
-      Data.write(False)
+      DATA.write(False)
     pulseHigh(W_CLK)              	# pulse the clock line
     data=data>>1                  	# Rotate right to get next bit
   return
