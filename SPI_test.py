@@ -30,8 +30,9 @@ def sendFrequency(frequency):     		# Function to send frequency (assumes 125MHz
     tfr_byte(freq & 0xFF)
     print(freq & 0xFF)
     freq=freq>>8
-    pulseHigh(FQ_UD)
+    
   tfr_byte(0x00)
+  pulseHigh(FQ_UD)
   return
 
 
