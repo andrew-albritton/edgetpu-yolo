@@ -17,10 +17,8 @@ def tfr_byte(data):               		# Function to send a byte by serial "bit-ban
   for i in range (0,8):
     if((data & 0x01) == 0x01):	# Mask out LSB and put on GPIO pin "DATA"
       DATA.write(True)
-      print(1)
     elif((data & 0x01) == 0x00):
       DATA.write(False)
-      print(0)
     pulseHigh(W_CLK)              	# pulse the clock line
     data=data>>1                  	# Rotate right to get next bit
   return
@@ -30,6 +28,7 @@ def sendFrequency(frequency):     		# Function to send frequency (assumes 125MHz
   print(freq)
   for b in range (0,4):
     tfr_byte(freq & 0xFF)
+    print(freq)
     freq=freq>>8
     tfr_byte(0x00)
     pulseHigh(FQ_UD)
