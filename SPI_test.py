@@ -15,7 +15,6 @@ def pulseHigh(pin):               		# Function to send a pulse
 
 def tfr_byte(data):               		# Function to send a byte by serial "bit-banging"
   for i in range (0,8):
-    print(data & 0x01)
     if((data & 0x01) == 0x01):	# Mask out LSB and put on GPIO pin "DATA"
       DATA.write(True)
     else:
@@ -28,6 +27,7 @@ def sendFrequency(frequency):     		# Function to send frequency (assumes 125MHz
   freq=int(frequency*4294967296/125000000)
   print(freq)
   for b in range (0,4):
+    print(freq & 0xFF)
     tfr_byte(freq & 0xFF)
     freq=freq>>8
     tfr_byte(0x00)
