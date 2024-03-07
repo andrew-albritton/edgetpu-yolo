@@ -20,7 +20,7 @@ def tfr_byte(data):               		# Function to send a byte by serial "bit-ban
   return
 
 def sendFrequency(frequency):     		# Function to send frequency (assumes 125MHz xtal)
-  freq=long(frequency*4294967296/125000000)
+  freq=int(frequency*4294967296/125000000)
   for b in range (0,4):
     tfr_byte(freq & 0xFF)
     freq=freq>>8
