@@ -41,5 +41,6 @@ pulseHigh(FQ_UD)
 
 frequency = [40000, 50000, 70000, 200000, 400000]               		# choose frequency and
 for i in range(0, len(frequency) - 1):
+  print("sending frequency: "+frequency[i])
   sendFrequency(frequency[i])          		# start the oscillator
   time.sleep(5)
