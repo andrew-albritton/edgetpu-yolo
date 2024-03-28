@@ -182,7 +182,12 @@ try:
                         time.sleep(1)
                         if turn_off:
                          os.system("sudo shutdown now") #turns system off when switch is turned
-                    
+                    frequency = 0               		# choose frequency and
+                    pulseHigh(RESET)                  		# start-up sequence...
+                    pulseHigh(W_CLK)
+                    pulseHigh(FQ_UD)
+                    print("sending frequency: "+str(frequency))
+                    sendFrequency(frequency) 
             time.sleep(1)
         except Exception as e:
             print(f"An error occurred: {e}")
