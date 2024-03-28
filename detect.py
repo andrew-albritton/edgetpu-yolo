@@ -144,7 +144,7 @@ if __name__ == "__main__":
                 imagepath = "out_images_/"+photo_name+".jpg"
                 model.process_predictions(pred[0], full_image, pad, output_path=imagepath)
                 ImageFile.LOAD_TRUNCATED_IMAGES = True
-                
+          
                 tinference, tnms = model.get_last_inference_time()
                 logger.info("Frame done in {}".format(tinference+tnms))
              
@@ -152,9 +152,18 @@ if __name__ == "__main__":
             break
                     
         
-      
-            
-        
-
-    
-
+        fps = 5
+        if os.listdir("out_images_"):
+          clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip("out_images_/", fps=fps)
+          clip.write_videofile('my_new_video.mp4')
+          folder = 'out_images_/'
+          for filename in os.listdir(folder):
+            file_path = os.path.join(folder, filename)
+            try:
+              if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+              elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+            except Exception as e: 
+              print('Failed to delete %s. Reason: %s' % (file_path, e))
+        cam.release()
