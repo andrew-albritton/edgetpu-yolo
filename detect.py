@@ -46,7 +46,7 @@ if __name__ == "__main__":
         logger.error("Please select either an input image or a stream")
         exit(1)
     
-    model = EdgeTPUModel(args.model, args.names, conf_thresh=args.conf_thresh, iou_thresh=args.iou_thresh, save_txt=True)
+    model = EdgeTPUModel(args.model, args.names, conf_thresh=args.conf_thresh, iou_thresh=args.iou_thresh)
     input_size = model.get_image_size()
 
     x = (255*np.random.random((3,*input_size))).astype(np.uint8)
