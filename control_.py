@@ -2,10 +2,8 @@
 import os
 import pandas as pd
 import time
-from periphery import SPI
 from periphery import GPIO
-import time
-import os
+
 
 '''
 this file will be used to take in images from our camera
