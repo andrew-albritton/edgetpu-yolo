@@ -151,7 +151,7 @@ if __name__ == "__main__":
           except KeyboardInterrupt:
             break
                     
-        
+        '''
         fps = 5
         if os.listdir("out_images_"):
           clip = moviepy.video.io.ImageSequenceClip.ImageSequenceClip("out_images_/", fps=fps)
@@ -166,4 +166,5 @@ if __name__ == "__main__":
                 shutil.rmtree(file_path)
             except Exception as e: 
               print('Failed to delete %s. Reason: %s' % (file_path, e))
+              '''
         cam.release()
