@@ -246,7 +246,6 @@ class EdgeTPUModel:
                 s = s[:-1]
             
             logger.info("Detected: {}".format(s))
-            save_txt = True
             # Write results
             for *xyxy, conf, cls in reversed(det):
                 if save_img:  # Add bbox to image
