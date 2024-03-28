@@ -152,7 +152,7 @@ try:
                     print("lizard averaged prob: ", lizardscore, '\n')
                     print("fly averaged    prob: ", flyscore, '\n')
                     print("Transmit Frequency: "+tot_count)
-                    if (tot_count == rat):
+                    if (foundrat == True):
                         frequency = 70000               		# choose frequency and
                         pulseHigh(RESET)                  		# start-up sequence...
                         pulseHigh(W_CLK)
@@ -160,7 +160,7 @@ try:
                         print("sending frequency: "+str(frequency))
                         sendFrequency(frequency)          		# start the oscillator
                         time.sleep(10)
-                    if (tot_count == lizard):
+                    if (foundliz == True):
                          frequency = 50000               		# choose frequency and
                          pulseHigh(RESET)                  		# start-up sequence...
                          pulseHigh(W_CLK)
@@ -168,7 +168,7 @@ try:
                          print("sending frequency: "+str(frequency))
                          sendFrequency(frequency)          		# start the oscillator
                          time.sleep(10)
-                    if (tot_count == fly):
+                    if (foundfly == True):
                          frequency = 40000               		# choose frequency and
                          pulseHigh(RESET)                  		# start-up sequence...
                          pulseHigh(W_CLK)
