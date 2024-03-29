@@ -158,7 +158,7 @@ try:
                         pulseHigh(FQ_UD)
                         print("sending frequency: "+str(frequency))
                         sendFrequency(frequency)          		# start the oscillator
-                        time.sleep(10)
+                        
                     if (tot_count == 'lizard'):
                          frequency = 50000               		# choose frequency and
                          pulseHigh(RESET)                  		# start-up sequence...
@@ -166,7 +166,7 @@ try:
                          pulseHigh(FQ_UD)
                          print("sending frequency: "+str(frequency))
                          sendFrequency(frequency)          		# start the oscillator
-                         time.sleep(10)
+                         
                     if (tot_count == 'fly'):
                          frequency = 40000               		# choose frequency and
                          pulseHigh(RESET)                  		# start-up sequence...
@@ -174,7 +174,7 @@ try:
                          pulseHigh(FQ_UD)
                          print("sending frequency: "+str(frequency))
                          sendFrequency(frequency)          		# start the oscillator
-                         time.sleep(10)
+                         
                     f = open("detections.csv", "w+")
                     f.close()
                     
