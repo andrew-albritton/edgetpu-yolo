@@ -1,3 +1,4 @@
 sleep 15s
-python3 /home/mendel/project_files/edgetpu-yolo/control_.py |& tee  -a outlog.txt
+cd project_files/edgetpu-yolo/
+python3 control_.py |& tee  -a outlog.txt
 
