@@ -92,7 +92,7 @@ try:
                 os.system("sudo shutdown now") #turns system off when switch is turned
             if state:
                 print("Motion Detected! Running Classification...")
-                os.system("python3 detect.py -m final_weights-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.3 --stream --device 0")
+                os.system("python3 detect.py -m final_weights-int8_edgetpu.tflite --names data.yaml --conf_thresh 0.3 --stream --device 1")
                 time.sleep(3.0)
                 dataframe = pd.read_csv("detections.csv", header=None)   
                 length = dataframe.shape[0]
