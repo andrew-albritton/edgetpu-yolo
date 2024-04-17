@@ -186,6 +186,7 @@ try:
                     
                     for i in range(30):
                         time.sleep(1)
+                        turn_off = off_switch.read()
                         if turn_off:
                          os.system("sudo shutdown now") #turns system off when switch is turned
                     yellowLED.write(False)
