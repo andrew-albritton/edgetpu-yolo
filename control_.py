@@ -156,7 +156,7 @@ try:
                     if (tot_count == 'rat'):                # both on
                         yellowLED.write(True)
                         blueLED.write(True)
-                        frequency = 15000               		# choose frequency and
+                        frequency = 70000               		# choose frequency and
                         pulseHigh(RESET)                  		# start-up sequence...
                         pulseHigh(W_CLK)
                         pulseHigh(FQ_UD)
@@ -165,7 +165,7 @@ try:
                         
                     if (tot_count == 'lizard'):             # blue on 
                          blueLED.write(True)
-                         frequency = 12000               		# choose frequency and
+                         frequency = 50000               		# choose frequency and
                          pulseHigh(RESET)                  		# start-up sequence...
                          pulseHigh(W_CLK)
                          pulseHigh(FQ_UD)
@@ -174,7 +174,7 @@ try:
                          
                     if (tot_count == 'fly'):                # yellow on
                          yellowLED.write(True)
-                         frequency = 9000               		# choose frequency and
+                         frequency = 45000               		# choose frequency and
                          pulseHigh(RESET)                  		# start-up sequence...
                          pulseHigh(W_CLK)
                          pulseHigh(FQ_UD)
