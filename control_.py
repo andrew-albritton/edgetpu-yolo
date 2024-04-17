@@ -80,6 +80,8 @@ insert code here to use above functions for image processing
 # GPIO pin initialization
 motionsensor = GPIO("/dev/gpiochip4", 13, "in")  # pin 36
 off_switch = GPIO("/dev/gpiochip0", 6, "in") # pin 13
+blueLED = GPIO("/dev/gpiochip2", 9, "out") # pin 16
+yellowLED = GPIO("/dev/gpiochip2", 13, "out") # pin 37
 counter = 0
 try:
     while True:
@@ -151,7 +153,9 @@ try:
                     print("lizard averaged prob: ", lizardscore, '\n')
                     print("fly averaged    prob: ", flyscore, '\n')
                     print("Transmit Frequency: "+tot_count)
-                    if (tot_count == 'rat'):
+                    if (tot_count == 'rat'):                # both on
+                        yellowLED.write(True)
+                        blueLED.write(True)
                         frequency = 70000               		# choose frequency and
                         pulseHigh(RESET)                  		# start-up sequence...
                         pulseHigh(W_CLK)
@@ -159,7 +163,8 @@ try:
                         print("sending frequency: "+str(frequency))
                         sendFrequency(frequency)          		# start the oscillator
                         
-                    if (tot_count == 'lizard'):
+                    if (tot_count == 'lizard'):             # blue on 
+                         blueLED.write(True)
                          frequency = 50000               		# choose frequency and
                          pulseHigh(RESET)                  		# start-up sequence...
                          pulseHigh(W_CLK)
@@ -167,7 +172,8 @@ try:
                          print("sending frequency: "+str(frequency))
                          sendFrequency(frequency)          		# start the oscillator
                          
-                    if (tot_count == 'fly'):
+                    if (tot_count == 'fly'):                # yellow on
+                         yellowLED.write(True)
                          frequency = 40000               		# choose frequency and
                          pulseHigh(RESET)                  		# start-up sequence...
                          pulseHigh(W_CLK)
@@ -182,6 +188,8 @@ try:
                         time.sleep(1)
                         if turn_off:
                          os.system("sudo shutdown now") #turns system off when switch is turned
+                    yellowLED.write(False)
+                    blueLED.write(False)
                     frequency = 0               		# choose frequency and
                     pulseHigh(RESET)                  		# start-up sequence...
                     pulseHigh(W_CLK)
