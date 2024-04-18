@@ -7,19 +7,20 @@ from periphery import GPIO
 
 '''
 this file will be used to take in images from our camera
-- then process them to size 640x640
 - then send photos through detection using os command
 - then pull detected objects from output csv from above line and perform following steps
 - average out detection accross the three species of interest
-- whichever species has the highest average will then be sent to the GPI/O pins for transmitter application
+- whichever species that is detected in the most frames will then be sent to the GPI/O pins for transmitter application
 
 
 ***input***
 images for detection
-
+off_switch (recieved signal from arduino of system power is to shut down)
+(this is needed to accomidate the google coral boards shutdown requirements)
 
 ***output*** 
 final descision label for transmission 
+and SPI/GPIO communication depending on found frequency
 '''
 
 W_CLK = GPIO("/dev/gpiochip4",10,"out")         #pin 18
@@ -142,8 +143,8 @@ try:
                 if (foundliz == True):
                     lizardscore = lizardprob / lizardcount
                 
-                scorelist = {'rat':ratscore, 'lizard':lizardscore, 'fly':flyscore}
-                countlist = {'rat':rodentcount, 'lizard':lizardcount, 'fly':flycount}
+                scorelist = {'rat':ratscore, 'lizard':lizardscore, 'fly':flyscore} # score is used to display confidence, however during testing it was found that 
+                countlist = {'rat':rodentcount, 'lizard':lizardcount, 'fly':flycount} # count is a more effective way to process images with detected items with an accuracy increase of 20%
                 tot_count = max(countlist, key=countlist.get)
                 descision = max(scorelist, key=scorelist.get)
                 if (foundrat == False and foundfly == False and foundliz == False): 
