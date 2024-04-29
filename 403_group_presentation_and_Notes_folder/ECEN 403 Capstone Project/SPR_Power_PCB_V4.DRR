@@ -1,0 +1,19 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: SPR_Power_PCB_V4.PcbDoc   3/21/2024  2:57:37 PM
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : SPR_Power_PCB_V4.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.254mm (10mil)                                           Round             5         PTH        2.98mm (0.12inch)
+T2      0.3mm (12mil)                                             Round             25        PTH        142.83mm (5.62inch)
+T3      1mm (39mil)                                               Round             2         PTH        2.54mm (0.10inch)
+T4      1.3mm (51mil)                                             Round             8         PTH        59.60mm (2.35inch)
+T5      1.7mm (67mil)                                             Round             1         NPTH       0.00mm (0.00inch)
+T6      1.8mm (71mil)                                             Round             1         NPTH       0.00mm (0.00inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              42
+
+Total Processing Time (hh:mm:ss) : 00:00:00
