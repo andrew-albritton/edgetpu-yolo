@@ -1,0 +1,10 @@
+Change Net Name : Old Net Name=+8 New Net Name=GND
+Added Pin To Net: NetName=+8 Pin=C19-1
+Added Pin To Net: NetName=+8 Pin=C20-1
+Added Pin To Net: NetName=+8 Pin=C21-1
+Added Pin To Net: NetName=+8 Pin=R7-2
+Added Pin To Net: NetName=+8 Pin=R8-1
+Added Pin To Net: NetName=+8 Pin=U6-4
+Added Pin To Net: NetName=+8 Pin=U7-4
+Added Pin To Net: NetName=+8 Pin=U9-3
+Added Net: Name=+8

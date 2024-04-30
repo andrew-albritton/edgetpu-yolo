@@ -1,0 +1,11 @@
+Output: Generates pick and place files
+Type  : Pick Place
+From  : Variant [[No Variations]] of Project [Amplifier.PrjPcb]
+   Generated File[Pick Place for AmpPCB.txt]
+   Generated File[Pick Place for AmpPCB.csv]
+
+
+Files Generated   : 2
+Documents Printed : 0
+
+Finished Output Generation At 11:17:59 PM On 3/25/2024

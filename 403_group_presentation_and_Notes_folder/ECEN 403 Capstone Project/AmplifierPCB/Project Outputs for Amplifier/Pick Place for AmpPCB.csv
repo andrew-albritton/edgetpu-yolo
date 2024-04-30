@@ -1,0 +1,44 @@
+Altium Designer Pick and Place Locations
+C:\Users\Public\Documents\Altium\Amplifier\Project Outputs for Amplifier\Pick Place for AmpPCB.csv
+
+========================================================================================================================
+File Design Information:
+
+Date:       25/03/24
+Time:       23:17
+Revision:   Not in VersionControl
+Variant:    No variations
+Units used: mil
+
+"Designator","Comment","Layer","Footprint","Center-X(mil)","Center-Y(mil)","Rotation","Description"
+"J1","SSW-104-02-G-S","TopLayer","FP-SSW-104-02-G-S-MFG","2840.000","3180.000","270","SSW-104-02-G-S Board to Board & Mezzanine Connectors Tiger Buy Socket Strip with PCB Tails, .100 Pitch"
+"U4","LM5161PWPR","TopLayer","FP-PWP0014A-MFG","3420.000","2790.000","0","IC REG BCK FLYBCK ADJ 14HTSSOP"
+"U3","MA40S4S","TopLayer","FP-MA40S4S-MFG","4473.425","3516.102","0","ULTRASONIC SENSOR TRANS 40KHZ"
+"U2","TL071CDR","TopLayer","D0008A_M","3770.000","3390.000","0","Low-Noise JFET-Input General-Purpose Operational Amplifier, 7 to 36 V, 0 to 70 degC, 8-pin SOIC (D8), Green (RoHS & no Sb/Br)"
+"U1","OPA1641AIDGKT","TopLayer","DGK0008A_N","3197.598","3342.795","0","Sound-Plus High-Performance, JFET-Input Audio Operational Amplifier, 4.5 to 36 V, -40 to 85 degC, 8-pin SOP (DGK8), Green (RoHS & no Sb/Br)"
+"R14","1K","TopLayer","RESC2013X70X40ML20T20","3833.386","3585.000","0","Chip Resistor, 1 KOhm, +/- 1%, 0.125 W, -55 to 155 degC, 0805 (2012 Metric), RoHS, Tape and Reel"
+"R13","13K","TopLayer","RESC2013X70X40NL20T20","3674.449","3585.000","0",""
+"R12","20K","TopLayer","FP-RT0805-MFG","3530.000","3458.661","270","RES SMD 20K OHM 1% 1/8W 0805"
+"R11","62K","TopLayer","RESC1608X55X25NL10T15","3490.000","2372.441","90",""
+"R10","100K","TopLayer","FP-RC0603-0_55-MFG","3570.000","2366.535","270","RES SMD 100K OHM 1% 1/10W 0603"
+"R9","340K","TopLayer","FP-CRCW0402-e3-MFG","3440.000","2619.331","90","RES Thick Film, 340kO, 1%, 0.063W, 100ppm/°C, 0402"
+"R8","102K","TopLayer","RESC2013X60X35LL10T20","3143.504","2770.000","0",""
+"R7","102K","TopLayer","RESC2013X60X35LL10T20","3143.504","2880.000","180",""
+"R6","294K","TopLayer","RESC1005X40X25LL05T05","3124.252","2680.000","180",""
+"R5","215","TopLayer","RESC2013X70X40NL20T20","4040.000","3550.551","270",""
+"R3","50R","TopLayer","RESC2013X70X40LL20T20","3445.000","3469.488","90",""
+"R2","3K","TopLayer","FP-RC2012-MFG","3310.276","3500.000","0","Res Thick Film 0805 3kO 1% 0.125W ±100ppm/°C Molded SMD T/R"
+"R1","3K","TopLayer","FP-RC2012-MFG","3145.000","3500.000","0","Res Thick Film 0805 3kO 1% 0.125W ±100ppm/°C Molded SMD T/R"
+"R0","1.54K","TopLayer","RESC2013X70X40LL20T20","3004.488","3500.000","0",""
+"L1","220nF","TopLayer","WE-HCF_2920","4240.354","2680.000","90","74437529203221 WE-HCF High Current Inductor, 220uH, 8.8A, 2.8MHz, 36.45mOhm"
+"C11","3.3nF","TopLayer","FP-CL31-IPC_C","3570.000","2589.749","270","Cap Ceramic 3.3nF 50V X7R ±10% SMD 1206 +125°C Embossed T/R"
+"C10","10uF","TopLayer","CAPC3216X180X55LL20T25","3300.000","2354.803","90","Chip Capacitor, 10 uF, +/- 10%, 16 V, -55 to 125 degC, 1206 (3216 Metric), RoHS, Tape and Reel"
+"C9","10uF","TopLayer","CAPC3216X180X55LL20T25","3190.000","2355.000","90","Chip Capacitor, 10 uF, +/- 10%, 16 V, -55 to 125 degC, 1206 (3216 Metric), RoHS, Tape and Reel"
+"C8","10uF","TopLayer","CAPC3216X180X55LL20T25","3080.000","2354.803","90","Chip Capacitor, 10 uF, +/- 10%, 16 V, -55 to 125 degC, 1206 (3216 Metric), RoHS, Tape and Reel"
+"C7","1nF","TopLayer","FP-CGA2B-MFG","3360.000","2624.252","270","Cap Ceramic 1nF 50V X7R 10% Pad SMD 0402 +125°C Automotive T/R"
+"C6","1uF","TopLayer","FP-CGA3E-0_3-0_1-MFG","3665.000","3002.559","90","Cap Ceramic 1uF 35V X7R 10% Pad SMD 0603 +125°C Automotive T/R"
+"C5","10nF","TopLayer","CAPC1005X55X25LL05T10","3630.000","2824.646","90","Chip Capacitor, 10 nF, 16 V, 10%, -55 to 125 degC, 0402 (1005 Metric), RoHS, Tape and Reel"
+"C4","1uF","TopLayer","CAPC3216X180X50ML20T25","3305.000","3049.055","270","Chip Capacitor, 1 uF, +/- 10%, 25 V, -55 to 125 degC, 1206 (3216 Metric), RoHS, Tape and Reel"
+"C3","4.7uF","TopLayer","FP-GRM31C-0_2-e0_3_0_8-IPC_C","3440.000","3035.228","90","Chip Multilayer Ceramic Capacitors for General Purpose, 1206, 4.7uF, X7R, 15%, 10%, 50V"
+"C2","0.1uF","TopLayer","FP-CC0805-0_85-MFG","3570.000","3016.417","90","CAP CER 0.1UF 25V X7R 0805"
+"C1","22nF","TopLayer","FP-CGA4J-MFG","3143.583","2600.000","180","Cap Ceramic 22nF 50V C0G 5% Pad SMD 0805 +125°C Automotive T/R"
